@@ -5,11 +5,11 @@ from accounts.models import User, Client
 class EventStatus(models.Model):
 
     CREATED = 'created'
-    IN_PROGRESS = 'in_progress'
+    INPROGRESS = 'in_progress'
     FINISHED = 'finished'
     EVENT_STATUS = (
         (CREATED, 'created'),
-        (IN_PROGRESS, 'in_progress'),
+        (INPROGRESS, 'in_progress'),
         (FINISHED, 'finished')
     )
 
@@ -37,3 +37,6 @@ class Event(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+

@@ -4,6 +4,7 @@ from datetime import datetime
 
 
 class Contract(models.Model):
+
     sales_contact = models.ForeignKey(to=User, on_delete=models.CASCADE)
     client = models.ForeignKey(to=Client, on_delete=models.CASCADE)
 
@@ -16,3 +17,10 @@ class Contract(models.Model):
 
     def __str__(self):
         return f'{Client.objects.get(id=self.client.id)} {self.date_created}'
+
+    def update_date(self):
+        self.date_updated = datetime.now()
+        
+    def save(self, *args, **kwargs):
+        self.update_date()
+        return super(Contract, self).save()
