@@ -32,6 +32,10 @@ Installez ensuite les packages requis :
 ```
 pip install -r requirements.txt
 ```
+Enfin, il vous faut une base de donnée afin de pouvoir lancer le projet, il ne vous reste plus qu'à installer 
+postgreSQL et créer une base de donnée vierge, puis de la connecter en mettant les bonnes informations dans le 
+fichier settings.py.  
+
 Prochaine étape, placez-vous à la racine du projet (là où il y a le fichier manage.py), puis faites les migrations :
 ```
 python manage.py makemigrations
@@ -44,4 +48,8 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-C'est finit ! Maintenant, vous pouvez utiliser l'application grâce aux différents endpoints détaillés dans la documentation.
+C'est finit ! Maintenant, vous pouvez utiliser l'application grâce aux différents endpoints détaillés dans la 
+documentation.  
+
+N'oubliez pas d'assigner les utilisateurs aux groupes correspondant à sales_members, support_members ou 
+management_members que vous aurez créé afin que les permissions fonctionnent bien.

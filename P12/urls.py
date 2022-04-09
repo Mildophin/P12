@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from rest_framework_nested import routers
+from rest_framework import routers
 from accounts.views import SignupViewset, ClientViewset
 from contracts.views import ContractViewset
 from events.views import EventViewset

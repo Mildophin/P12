@@ -4,10 +4,11 @@ from datetime import datetime
 
 
 class UserManager(BaseUserManager):
-
+    """Définit un gestionnaire de modèle pour l'utilisateur sans champ nom d'utilisateur."""
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
+        """Créé et enregistre un utilisateur avec l'email et le mot de passe donné."""
         if not email:
             raise ValueError("L'email donné doit être défini")
         email = self.normalize_email(email)
@@ -17,11 +18,13 @@ class UserManager(BaseUserManager):
         return user
 
     def create_user(self, email, password=None, **extra_fields):
+        """Créé et enregistre un utilisateur régulier avec l'email et le mot de passe donné."""
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
+        """Créé et enregistre un SuperUser avec l'email et le mot de passe donné."""
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
@@ -34,7 +37,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-
+    """Définit le modèle User qui se base un modèle AbstractUser"""
     SALES = 'sales_member'
     MANAGEMENT = 'management_member'
     SUPPORT = 'support_member'

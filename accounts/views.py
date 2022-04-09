@@ -41,6 +41,7 @@ class ClientViewset(ModelViewSet):
     filter_class = ClientFilter
 
     def get_permissions(self):
+        print(self.action)
         permission_classes = []
         if self.action == 'create':
             permission_classes = [IsManager | IsSales, ]
